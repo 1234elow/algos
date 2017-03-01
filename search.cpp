@@ -12,17 +12,41 @@ using namespace std;
 \param [in] data The data set that will be searched
 \returns location of key if found or -1 if not found
 */
-int linearSearch(auto data, auto key)//prototype
+//int linearSearch(auto data, auto key)//prototype
+//{
+//	for(int i = 0; i < data.size();i++)
+//	{
+//		if (data[i] == key)
+//		{
+//			return i;
+//		}
+//	}
+//	return -1;
+//}
+
+void selectionSort (auto& Data)
 {
-	for(int i = 0; i < data.size();i++)
+	int i, j, minIndex, tmp;
+
+       for (i = 0; i < Data.size() - 1; i++)
 	{
-		if (data[i] == key)
+	minIndex = i;
+		
+	//find smallest in unsorted part
+		for (j = i + 1; j < Data.size(); j++)
 		{
-			return i;
+			if (Data[j] < Data[minIndex])
+			    minIndex = j;
 		}
-	}
-	return -1;
-}
+
+		if (minIndex != i)
+		{
+			tmp = Data[i];
+			Data[i] = Data[minIndex];
+			Data[minIndex] = tmp;
+		} //end if
+	}// end outer loop
+}//end function
 
 int main()
 {
